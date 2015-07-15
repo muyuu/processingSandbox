@@ -81,7 +81,6 @@ void setup()
 void draw()
 {
     background(33, 66, 99);
-    var length = circles.length;
 
     _.each(circles, function(val){
         val.draw();
