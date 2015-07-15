@@ -27,6 +27,9 @@ function getRandom (min, max){
   return Math.floor ( Math.random() * ( (max + 1) -  min  ) + min );
 }
 
+function normalDistributionRandom (min, max) {
+  return _.reduce([1,2,3,4,5,6], function(){ return getRandom(min, max)}) / 6;
+}
 
 /**
  * -max から max までの0以外の整数をランダムで取得
@@ -34,11 +37,12 @@ function getRandom (min, max){
  * @return {number}     random number
  */
 function getDoubleRandomNotZero (max) {
-  var rand = getRandom(1, max);
+  var rand = normalDistributionRandom(1, max);
   var zeroOne = getRandom(0, 1);
   if ( zeroOne === 1 ) rand = - rand;
   return rand;
 }
+
 
 
 
@@ -54,15 +58,17 @@ void setup(){
 
   for ( var i = 1; i < NUMBER; i++ ) {
     circles.push( new Circle(
-        getRandom(10, document.body.offsetWidth),
-        getRandom(10, document.body.offsetHeight),
-        getRandom(4, 20),
-        getRandom(10, 60),
-        getDoubleRandomNotZero(20),
-        getDoubleRandomNotZero(20),
-        getRandom(100, 254)
+        getRandom(10, document.body.offsetWidth), // x
+        getRandom(10, document.body.offsetHeight), // y
+        getRandom(4, 20), // r
+        getDoubleRandomNotZero(20), // vectorX
+        getDoubleRandomNotZero(20), // vectorY
+        getRandom(100, 254) // lightness
       )
     );
+  }
+  for ( var i = 1; i < NUMBER; i++ ) {
+    console.log(circles[i].vectorX);
   }
 }
 
@@ -84,13 +90,12 @@ void draw() {
 // -----------------------------------------------------
 // circle class
 // -----------------------------------------------------
-var Circle = function (x, y, r, speed, vectorX, vectorY, lightness){
+var Circle = function (x, y, r, vectorX, vectorY, lightness){
     this.x = x;
     this.y = y;
     this.r = r;
     this.vectorX = vectorX;
     this.vectorY = vectorY;
-    this.speed = speed;
     this.lightness = lightness;
 };
 
@@ -115,7 +120,7 @@ Circle.prototype.update = function (){
  * @return {Boolean} 左端にいる場合はtrue
  */
 Circle.prototype.isLeftBorder = function (){
-    return this.x < 0;
+    return ( this.x - this.r ) < 0;
 };
 
 /**
