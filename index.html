@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <title>Circles</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <style>
-  html,body{ width: 100%; height: 100%; margin: 0; padding: 0;}
-  </style>
+	<meta charset="utf-8">
+	<title>Circles</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<style>
+		html, body {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			background: #777;
+		}
+
+		#drawCanvas {
+			width: 100%;
+			height: 100%;
+		}
+
+		ul {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+		}
+
+		a, a:visited {
+			color: #fff;
+		}
+	</style>
 </head>
 <body>
-<canvas data-processing-sources="circle.pde"></canvas>
+<canvas id="drawCanvas" data-processing-sources="circle.pde"></canvas>
 
+<ul class="js-runSwitcher">
+	<li><a href="#" data-processing-sources="circle">circles</a></li>
+</ul>
 <script src="./lib/jquery.min.js"></script>
 <script src="./lib/underscore-min.js"></script>
 <script src="./lib/processing.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
