@@ -28,7 +28,10 @@ function getRandom (min, max){
 }
 
 function normalDistributionRandom (min, max) {
-  return _.reduce([1,2,3,4,5,6], function(){ return getRandom(min, max)}) / 6;
+  var result = _.reduce([1,2,3,4,5,6], function(memo, num){
+    return memo + getRandom(min, max);
+  }, 0);
+  return result / 6;
 }
 
 /**
@@ -61,14 +64,11 @@ void setup(){
         getRandom(10, document.body.offsetWidth), // x
         getRandom(10, document.body.offsetHeight), // y
         getRandom(4, 20), // r
-        getDoubleRandomNotZero(20), // vectorX
-        getDoubleRandomNotZero(20), // vectorY
+        getDoubleRandomNotZero(5), // vectorX
+        getDoubleRandomNotZero(5), // vectorY
         getRandom(100, 254) // lightness
       )
     );
-  }
-  for ( var i = 1; i < NUMBER; i++ ) {
-    console.log(circles[i].vectorX);
   }
 }
 
