@@ -19,5 +19,24 @@
     "jquery": "~2.1.4",
     "Processing.js": "~1.4.15",
     "underscore": "~1.8.3"
+  },
+  "overrides": {
+    "jquery": {
+      "main": [
+        "dist/jquery.min.js",
+        "dist/jquery.min.map"
+      ]
+    },
+    "underscore": {
+      "main": [
+        "underscore-min.js",
+        "underscore-min.map"
+      ]
+    },
+    "Processing.js": {
+      "main": [
+        "processing.min.js"
+      ]
+    }
   }
 }

@@ -2,6 +2,23 @@ g = require "gulp"
 $ = require( 'gulp-load-plugins' )()
 connect = require 'gulp-connect'
 
+gulpFilter = require 'gulp-filter'
+mainBowerFiles = require 'main-bower-files'
+del = require 'del'
+
+# bower
+g.task 'clear-libs', ->
+  del.sync "./lib/"
+
+g.task "bower", ['clear-libs'], ->
+  jsFilter = gulpFilter ["**/*.js", "**/*.map"]
+
+  g.src(mainBowerFiles())
+    .pipe jsFilter
+    .pipe g.dest "./lib/"
+    .pipe jsFilter.restore()
+
+
 # local server
 g.task "connect", ->
     connect.server
