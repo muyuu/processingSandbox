@@ -39,7 +39,6 @@ g.task 'reload', ->
 
 
 g.task "default", ['connect'], ->
-    g.watch "**/*.pde", ["reload"]
-    g.watch "**/*.html", ["reload"]
+    g.watch ["**/*.pde","**/*.js","**/*.html"], ["reload"]
 
 
