@@ -71,7 +71,7 @@ void setup(){
 // processing draw
 // -----------------------------------------------------
 void draw() {
-    background(0);
+    background(33,66,99);
     var length = circles.length;
     for ( var i = 0; i < length; i++ ) {
         circles[i].draw();
