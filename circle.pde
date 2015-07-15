@@ -59,7 +59,8 @@ void setup(){
         getRandom(4, 20),
         getRandom(10, 60),
         getDoubleRandomNotZero(20),
-        getDoubleRandomNotZero(20)
+        getDoubleRandomNotZero(20),
+        getRandom(100, 254)
       )
     );
   }
@@ -83,17 +84,22 @@ void draw() {
 // -----------------------------------------------------
 // circle class
 // -----------------------------------------------------
-var Circle = function (x, y, r, speed, vectorX, vectorY){
+var Circle = function (x, y, r, speed, vectorX, vectorY, lightness){
     this.x = x;
     this.y = y;
     this.r = r;
     this.vectorX = vectorX;
     this.vectorY = vectorY;
-    this.speed = speed
+    this.speed = speed;
+    this.lightness = lightness;
 };
 
 Circle.prototype.draw = function (){
     this.update();
+    smooth();
+    noFill();
+    stroke(this.lightness,this.lightness,255);
+    strokeWeight(2);
     ellipse(this.x, this.y, this.r * 2, this.r * 2)
 };
 
