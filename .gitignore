@@ -6,7 +6,3 @@ bower_components/
 sftp-config.json
 
 
-# builded files
-assets/css/style.css
-assets/css/style.css.map
-assets/js/app.js
