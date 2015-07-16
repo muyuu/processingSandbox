@@ -7,7 +7,8 @@
 
     function selectSketch(){
         var data = $(this).data("processing-sources");
-        canvas.attr({ "data-processing-sources": data + ".pde" });
+        var pdePath = "./assets/pde/" + data + ".pde";
+        canvas.attr({ "data-processing-sources": pdePath });
         Processing.reload();
     }
 
