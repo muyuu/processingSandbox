@@ -7,7 +7,13 @@
 
 
     function init(){
+        $("#toggleMenu").on("click", toggleMenu);
         $(".js-runSwitcher a").on("click", selectSketch);
+    }
+
+    function toggleMenu(e){
+        e.preventDefault();
+        $(".js-runSwitcher").toggleClass('isShow');
     }
 
     function selectSketch(e){
@@ -19,6 +25,7 @@
         canvas.attr({ "data-processing-sources": pdePath });
 
         Processing.reload();
+        $(".js-runSwitcher").toggleClass('isShow');
     }
 
 })(jQuery, _);
