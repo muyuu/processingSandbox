@@ -42,7 +42,7 @@ void draw(){
 
     // set radius
     _radiusNoise += 0.005;
-    _radius = (noise(_radiusNoise) * _maxLength / 2) + 1;
+    _radius = (noise(_radiusNoise) * _maxLength ) - 100;
 
 
     // set angle
