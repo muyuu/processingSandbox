@@ -3,7 +3,7 @@
 
     window.onload = init;
 
-    window.onResize = Processing.reload;
+    window.onresize = Processing.reload;
 
 
     function init(){
