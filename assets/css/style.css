@@ -13,18 +13,47 @@ ul,li {
   padding: 0;
   list-style: none;
 }
+a,
+a:visited {
+  color: #fff;
+}
+
 
 #drawCanvas {
   width: 100%;
   height: 100%;
 }
 
-.sketchSwitcher {
+.toggleMenu {
   position: absolute;
   top: 10px;
   left: 10px;
+  padding: 5px;
+  background: rgba(30,30,30, .7);
+  text-decoration: none;
+  font-size: .65rem;
+}
+
+.sketchSwitcher {
+  position: absolute;
+  top: 35px;
+  left: 10px;
   font-size: .65rem;
   letter-spacing: .1rem;
+  -webkit-transform: translate3d(-110%, 0, 0);
+  -moz-transform: translate3d(-110%, 0, 0);
+  -ms-transform: translate3d(-110%, 0, 0);
+  transform: translate3d(-110%, 0, 0);
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+}
+.sketchSwitcher.isShow {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
 }
 .sketchSwitcher__item {
   margin-top: 10px;
