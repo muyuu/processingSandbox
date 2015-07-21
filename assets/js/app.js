@@ -1,9 +1,14 @@
 (function($, _){
     var canvas = $("#drawCanvas");
 
-    $(function(){
+    window.onload = init;
+
+    window.onResize = Processing.reload;
+
+
+    function init(){
         $(".js-runSwitcher a").on("click", selectSketch);
-    });
+    }
 
     function selectSketch(){
         var data = $(this).data("processing-sources");
