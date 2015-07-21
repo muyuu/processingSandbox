@@ -6,6 +6,8 @@ gulpFilter = require 'gulp-filter'
 mainBowerFiles = require 'main-bower-files'
 del = require 'del'
 
+port = 3009
+
 # bower
 g.task 'clear-libs', ->
   del.sync "./lib/"
@@ -22,11 +24,11 @@ g.task "bower", ['clear-libs'], ->
 # local server
 g.task "connect", ->
     connect.server
-        port: 3000
+        port: port
         livereload: true
 
     options =
-        url: "http://localhost:3000"
+        url: "http://localhost:" + port
         app: "Google Chrome"
 
     g.src "./index.html"

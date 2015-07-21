@@ -23,15 +23,19 @@ ul,li {
   position: absolute;
   top: 10px;
   left: 10px;
+  font-size: .65rem;
+  letter-spacing: .1rem;
 }
 .sketchSwitcher__item {
   margin-top: 10px;
-  padding: 5px;
   background: rgba(30,30,30, .7);
 }
 .sketchSwitcher__item:first {
   margin-top: 0;
 }
-a, a:visited {
+.sketchSwitcher__item a,
+.sketchSwitcher__item a:visited {
+  display: block;
+  padding: 5px;
   color: #fff;
 }
