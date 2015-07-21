@@ -8,12 +8,16 @@ var screenHeight = document.body.offsetHeight;
 円の描画方法は circle01.pde を参照
 */
 
+float _maxLength = screenWidth;
+if ( _maxLength > screenHeight ) _maxLength = screenHeight;
+
 float _angleNoise, _radiusNoise;
 float _xNoise, yNoise;
 float _angle = -PI / 2;
 float _radius;
 float _strokeColor = 254;
 int _strokeChange = -1;
+
 
 
 // -----------------------------------------------------
@@ -38,7 +42,7 @@ void draw(){
 
     // set radius
     _radiusNoise += 0.005;
-    _radius = (noise(_radiusNoise) * 550) + 1;
+    _radius = (noise(_radiusNoise) * _maxLength / 2) + 1;
 
 
     // set angle
